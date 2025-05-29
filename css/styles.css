@@ -1,251 +1,285 @@
+/* ==================== GOOGLE FONTS ==================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* ==================== VARIABLES ==================== */
+:root {
+  /* FONT SCALE */
+  --font-xxs: 0.75rem;
+  --font-xs: 0.875rem;
+  --font-sm: 1rem;
+  --font-md: 1.25rem;
+  --font-lg: 1.5rem;
+  --font-xl: 2rem;
+  --font-xxl: 2.5rem;
+
+  /* USE CASE FONT SIZES */
+  --logo-font-size: var(--font-lg);
+  --banner-font-size: var(--font-xxl);
+  --tab-font-size: var(--font-sm);
+  --product-title-size: var(--font-sm);
+  --product-meta-size: var(--font-xs);
+  --product-price-size: var(--font-sm);
+  --nav-font-size: var(--font-sm);
+  --input-font-size: var(--font-xs);
+
+  /* COLORS */
+  --color-bg: #f5f5f5;
+  --color-header: yellowgreen;
+  --color-footer-bg: #222;
+  --color-footer-text: #fff;
+  --color-text-primary: black;
+  --color-text-secondary: #666;
+  --color-text-desc: #555;
+  --color-accent: #28a745;
+  --color-promo-border: #00a;
+  --color-nav-hover: #bbb;
+}
+
+/* ==================== GENERAL ==================== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  color: #fff;
+  background-color: grey;
 }
 
 body {
-  background-color: #e0e0e0;
+  background-color: var(--color-bg);
+  min-height: 100vh;
 }
 
+/* Universal Container */
+.container {
+  width: 70%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* ==================== HEADER ==================== */
 header {
+  background-color: var(--color-header);
+  height: 60px;
+  width: 100%;
+}
+
+.header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 30px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.search-form {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 5px 10px;
-}
-
-.search-form input {
-  border: none;
-  outline: none;
-  padding: 5px 10px;
-  font-size: 14px;
-  width: 200px;
-}
-
-.search-form button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 0 5px;
+  height: 100%;
+  gap: 1rem;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: var(--logo-font-size);
+  margin-right: 1rem;
+  color: var(--color-text-primary);
 }
 
-.icons .icon {
-  margin-left: 20px;
-  font-size: 20px;
-  cursor: pointer;
+.logo a {
+  color: inherit;       /* Warna sama seperti .logo */
+  text-decoration: none; /* Hilangkan underline */
+  display: inline-block; /* Supaya clickable area tepat */
 }
 
-.container {
-  display: flex;
-  height: calc(100vh - 60px);
-}
-
-/* sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #f5f5f5;
-}
-
-.sidebar ul {
-  padding-top: 20px;
-  padding-left: 18px;
-  list-style: none;
-}
-
-.sidebar li {
-  margin-bottom: 10px;
-}
-
-.sidebar a {
-  display: block;
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  padding: 3px 12px;
-  border-bottom-right-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-/* Hover effect */
-.sidebar a:hover {
-  width: 200px;
-  height: 25px;
-  background-color: #cfcfcf; /* warna abu-abu hover */
-  transition: background-color 0.3s;
-}
-
-/* Aktif (halaman saat ini) */
-.sidebar a.active {
-  background-color: #b0b0b0; /* warna abu-abu lebih gelap untuk menandakan aktif */
-}
-
-/* sidebar end */
-
-/* recom (content area) */
-.recom {
+.search-bar {
   flex: 1;
-  padding: 30px;
-  background-color: white;
-  overflow-y: auto;
-  padding-right: 10px;
+  margin: 0 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: var(--input-font-size);
+}
+
+nav {
+  display: flex;
   height: 100%;
+  gap: 0.5rem;
 }
 
-.recom h2 {
-  margin-bottom: 20px;
+nav a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  font-size: var(--nav-font-size);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s ease;
 }
 
-/* scrollbar (opsional) */
-.recom::-webkit-scrollbar {
-  width: 6px;
+nav a:hover {
+  background-color: var(--color-nav-hover);
 }
 
-.recom::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border-radius: 4px;
+/* ==================== BANNER ==================== */
+.promo-banner {
+  background-color: #fff;
+  height: 200px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-promo-border);
+  border-radius: 6px;
 }
 
-/* grid item (card) */
-.grid {
+.promo-text {
+  font-size: var(--banner-font-size);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ==================== TABS ==================== */
+.tab-section {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.tab {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: var(--tab-font-size);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab.active {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ==================== PRODUCT GRID ==================== */
+.product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
-.card {
-  background-color: #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.image-placeholder {
-  background-color: #555;
-  height: 150px;
-}
-
-.card-content {
-  padding: 10px;
-  background-color: #e0e0e0;
-}
-
-.title {
-  font-weight: bold;
-}
-
-.author {
-  font-size: 14px;
-  color: #333;
-}
-
-.price {
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-.tombol {
-  align-items: center;
-}
-
-.btn-jual {
-  background-color: #000000;
-  width: 100%;
-  color: rgb(255, 255, 255);
-  padding: 12px 25px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
-
-.btn-jual:hover {
-  background-color: #c4c4c4;
-  color: rgb(0, 0, 0);
-}
-
-
-/* ===================================================== */
-/* Tambahan khusus halaman jual barang (form) */
-
-.form-container {
-  background-color: #fff;
-  padding: 30px;
+.product-card {
+  padding: 0.75rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"] {
+.product-image {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.kategori {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.kategori label {
+.seller-info {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 0.5rem;
 }
 
-.upload-box {
-  border: 2px dashed #aaa;
-  border-radius: 10px;
-  padding: 40px;
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.seller-name {
+  font-weight: 500;
+  font-size: var(--product-meta-size);
+  margin: 0;
+}
+
+.posted-time {
+  font-size: var(--font-xxs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.product-info h4 {
+  font-size: var(--product-title-size);
+  font-weight: 600;
+  margin: 0;
+}
+
+.product-info .price {
+  font-weight: 700;
+  font-size: var(--product-price-size);
+  color: var(--color-accent);
+  margin: 0.25rem 0 0;
+}
+
+.product-info .desc {
+  font-size: var(--product-meta-size);
+  color: var(--color-text-desc);
+  margin-top: 0.25rem;
+}
+
+.likes {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: right;
+  margin-top: auto;
+}
+
+/* ==================== LOAD MORE ==================== */
+.load-more {
   text-align: center;
-  color: #777;
-  background-color: #f9f9f9;
-  cursor: pointer;
+  margin: 2rem 0;
 }
 
-.upload-box i {
-  font-size: 30px;
-  display: block;
-  margin-bottom: 10px;
+.load-more button {
+  padding: 10px 24px;
+  border-radius: 15px;
+  border: none;
+  background-color: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.load-more button:hover {
+  background-color: #1e7a32;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 2rem;
 }
