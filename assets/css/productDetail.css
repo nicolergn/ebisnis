@@ -1,10 +1,9 @@
 /* ==================== PRODUCT DETAIL ==================== */
 .product-detail {
     display: flex;
-    height: 500px;
-    margin-top: 150px;
-    margin-bottom: 70px;
-    gap: 30px;
+    height: 30rem;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
 }
 
 /* ========== Detail Image ========== */
@@ -25,19 +24,19 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-    padding: 10px 30px 0px 0px;
+    padding: 1rem 2rem 0rem 2rem;
 }
 
 .detail-info .title {
-    margin-bottom: 10px;
-    font-size: var(--font-lg);
+    margin-bottom: 1rem;
+    font-size: var(--font-size-product-detail-title);
     color: var(--color-text-primary);
 }
 
 .detail-info .price {
-    margin-bottom: 30px;
-    font-size: var(--font-xl);
-    color: var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: var(--font-size-product-detail-price);
+    color: var(--color-accent);
 }
 
 .detail-info .info-meta {
@@ -45,100 +44,119 @@
     gap: 10rem;
 }
 
-.detail-info p {
-    font-weight: 00;
-    font-size: var(--font-xs);
-    color: var(--color-text-primary);
-}
-
 .detail-info .label {
-    margin-bottom: 5px;
+    margin-bottom: 0.2rem;
     font-weight: 600;
-    font-size: var(--font-sm);
+    font-size: var(--font-size-product-detail-label);
     color: var(--color-text-primary) ;
 }
 
+.detail-info p {
+    font-weight: 400;
+    font-size: var(--font-size-product-detail-p);
+    color: var(--color-text-primary);
+}
+
 .detail-info .deskripsi {
-    margin-top: 20px;
+    margin-top: 2rem;
+    text-align: justify;
 }
 
-/* ==================== SELLER INFO ==================== */
-.seller-info {
+/* ==================== SELLER PREVIEW ==================== */
+.seller-preview {
     display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-    padding: 30px;
-    gap: 20px;
+    align-items: stretch;
+    padding: 2rem;
+    gap: 2rem;
     border-radius: 5px;
-    border: 1px solid var(--lighter-border-color);
-    background-color: #fafafa;
+    border: 1px solid var(--color-border-light);
+    background-color: var(--color-bg-secondary);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-/* ========== Seller Info Left Side ========== */
-.seller-left {
+/* ========== Left: Profile Preview ========== */
+.seller-preview .seller-left {
     display: flex;
     align-items: center;
-    gap: 30px;
     flex: 1;
 }
 
-.profile-pic {
+.preview-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.preview-profile .profile-pic {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid var(--darker-border-color);
+    border: 1px solid var(--color-border-dark);
 }
 
-.seller-name h4 {
-  margin: 0;
-  font-size: 20px;
+.preview-profile .seller-details {
+    display: flex;
+    flex-direction: column;
 }
 
-.seller-name p {
-  margin: 5px 0;
-  font-size: 14px;
-  color: gray;
+.preview-profile .seller-name {
+    font-weight: 600;
+    font-size: var(--font-size-preview-profile-name);
+    color: var(--color-text-primary);
 }
 
-.seller-buttons {
-  margin-top: 10px;
-  gap: 10px;
+.preview-profile .last-active {
+    font-size: var(--font-size-preview-profile-active) ;
+    color: var(--color-text-secondary);
 }
 
-.chat-btn {
-  padding: 5px 12px;    
-  font-size: 14px;
-  border-radius: 5px;
-  border: 1px solid #e53935;
-  color: #e53935;
-  background-color: #fff;
-  cursor: pointer;
+.preview-profile .chat-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-accent);
+    font-weight: 500;
+    font-size: var(--font-size-preview-profile-button);
+    color: var(--color-text-inverse);
+    background-color: var(--color-accent);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-.vertical-line {
-  width: 1px;
-  height: 100px;
-  background-color: var(--lighter-border-color);
+.preview-profile .chat-btn:hover {
+    color: var(--color-accent);
+    background-color: var(--color-bg-primary);
 }
 
-/* ========== Seller Right Left Side ========== */
-.seller-right {
-  flex: 2;
+/* ========== Vertical Line ========== */
+.seller-preview .vertical-line {
+    width: 1px;
+    height: auto;
+    opacity: 0.2;
+    background-color: var(--color-border-dark);
 }
 
-.seller-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 15px 30px;
+/* ========== Right: Seller Stats ========== */
+.seller-preview .seller-right {
+    flex: 2;
 }
 
-.label {
-  font-size: 13px;
-  color: #999;
+.seller-preview .seller-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+    column-gap: 2rem;
 }
 
-.value {
-  font-weight: bold;
-  color: #d32f2f;
+.seller-preview .seller-stats .label {
+    font-size: var(--font-size-preview-profile-stats);
+    color: var(--color-text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.seller-preview .seller-stats .value {
+    font-weight: 600;
+    font-size: var(--font-size-preview-profile-stats);
+    color: var(--color-accent);
 }
