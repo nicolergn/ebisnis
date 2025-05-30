@@ -1,170 +1,175 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>NAMAWEB - Toko Barang Bekas Mahasiswa</title>
-        <link rel="stylesheet" href="css/styles.css" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NAMAWEB - Toko Barang Bekas Mahasiswa</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/signModal.css" />
+    <link rel="stylesheet" href="assets/css/promoBanner.css" />
+    <link rel="stylesheet" href="assets/css/tabs.css" />
+    <link rel="stylesheet" href="assets/css/recommendation.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+  </head>
+  
+  <body>
+    <!-- Load Components -->
+    <div id="header"></div>
+    <div id="signModal"></div>
+    <div id="promoBanner"></div>
+    <div id="main"></div>
+    <div id="footer"></div>
+
+    <script>
+  async function loadComponent(id, file) {
+    const response = await fetch(file);
+    const text = await response.text();
+    document.getElementById(id).innerHTML = text;
+
+    // Setelah bagian main selesai dimuat, inisialisasi tab dan produk
+    if (id === "main") {
+      initTabsAndProducts(); 
+    }
+  }
+
+  // Load komponen halaman
+  loadComponent("header", "assets/pageSection/header.html");
+  loadComponent("signModal", "assets/pageSection/signModal.html");
+  loadComponent("promoBanner", "assets/pageSection/promoBanner.html");
+  loadComponent("main", "assets/pageSection/recommendation.html");
+  loadComponent("footer", "assets/pageSection/footer.html");
+
+  // Fungsi modal
+  function openModal(type) {
+    document.getElementById('modalOverlay').style.display = 'block';
+    document.getElementById(`${type}Modal`).style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').style.display = 'none';
+    document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+  }
+
+  function switchModal(to) {
+    closeModal();
+    openModal(to);
+  }
+
+  // Inisialisasi tab dan produk setelah <main> dimuat
+  function initTabsAndProducts() {
+    const tabs = document.querySelectorAll('.tab');
+    const productGrid = document.getElementById('product-grid');
+
+    const products = {
+      rekomendasi: [
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'iPhone 12 Pro 256GB Graphite',
+          price: 'Rp 6.800.000',
+          desc: 'Produk rekomendasi',
+          location: 'Bandung, Jawa Barat',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        }
+      ],
+      terbaru: [
+        {
+          name: 'Xiaomi 14 Pro',
+          price: 'Rp 10.000.000',
+          desc: 'Produk terbaru 2025',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        },
+        {
+          name: 'Google Pixel 9',
+          price: 'Rp 12.500.000',
+          desc: 'Rilis terbaru dari Google',
+          img: 'assets/images/pic_placehoder_sellitem.jpg'
+        }
+      ]
+    };
+
+    function renderProducts(productList) {
+      productGrid.innerHTML = productList.map(product => `
+        <a href="productDetail.html" class="product-card-link">
+          <div class="product-card">
+            <img src="${product.img}" alt="${product.name}" class="product-image" />
+            <div class="product-info">
+              <h4 class="title">${product.name}</h4>
+              <p class="price">${product.price}</p>
+              <p class="desc">${product.desc}</p>
+              <p class="location">${product.location}</p>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+
+    // Default tampilkan rekomendasi
+    renderProducts(products.rekomendasi);
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const selected = tab.getAttribute('data-tab');
+        renderProducts(products[selected]);
+      });
+    });
+  }
+</script>
+
+
     
-    <body>
-        <!-- Header (background full, isi 70%) -->
-        <header>
-            <div class="container header-content">
-                <div class="logo">
-                <a href="#" aria-label="Beranda NAMAWEB">NAMAWEB</a>
-                </div>
-                <div class="search-bar">
-                <input type="search" placeholder="Cari Barang" aria-label="Cari Barang" />
-                </div>
-                <nav>
-                <a href="#" role="link">Kategori</a>
-                <a href="#" role="link">Masuk</a>
-                <a href="#" role="link">Daftar</a>
-                </nav>
-            </div>
-        </header>
 
-
-        <!-- Main content -->
-        <main class="container">
-            
-            <!-- Banner Promosi -->
-            <section class="promo-banner">
-                <div class="promo-text">PROMOTION PLACEHOLDER</div>
-            </section>
-
-            <!-- Tab Navigasi -->
-            <section class="tab-section">
-                <button class="tab active">Rekomendasi</button>
-                <button class="tab">Terbaru</button>
-            </section>
-
-            <!-- Grid Produk -->
-            <section class="product-grid">
-                <!-- Produk contoh diulang -->
-                <div class="product-card">
-                    <div class="seller-info">
-                    <img src="images/pic_placehoder_potrait.jpg" alt="Profil" class="profile-pic" />
-                    <div>
-                        <p class="seller-name">andihakimm</p>
-                        <p class="posted-time">2 hari yang lalu</p>
-                    </div>
-                    </div>
-                    <img src="images/pic_placehoder_sellitem.jpg" alt="iPhone 12" class="product-image" />
-                    <div class="product-info">
-                    <h4>iPhone 12 Pro 256GB Graphite</h4>
-                    <p class="price">Rp 6.800.000</p>
-                    <p class="desc">Digunakan dengan baik</p>
-                    </div>
-                    <div class="likes">❤️ 3</div>
-                </div>
-
-                <!-- Produk contoh diulang -->
-                <div class="product-card">
-                    <div class="seller-info">
-                    <img src="images/pic_placehoder_potrait.jpg" alt="Profil" class="profile-pic" />
-                    <div>
-                        <p class="seller-name">andihakimm</p>
-                        <p class="posted-time">2 hari yang lalu</p>
-                    </div>
-                    </div>
-                    <img src="images/pic_placehoder_sellitem.jpg" alt="iPhone 12" class="product-image" />
-                    <div class="product-info">
-                    <h4>iPhone 12 Pro 256GB Graphite</h4>
-                    <p class="price">Rp 6.800.000</p>
-                    <p class="desc">Digunakan dengan baik</p>
-                    </div>
-                    <div class="likes">❤️ 3</div>
-                </div>
-
-                <!-- Produk contoh diulang -->
-                <div class="product-card">
-                    <div class="seller-info">
-                    <img src="images/pic_placehoder_potrait.jpg" alt="Profil" class="profile-pic" />
-                    <div>
-                        <p class="seller-name">andihakimm</p>
-                        <p class="posted-time">2 hari yang lalu</p>
-                    </div>
-                    </div>
-                    <img src="images/pic_placehoder_sellitem.jpg" alt="iPhone 12" class="product-image" />
-                    <div class="product-info">
-                    <h4>iPhone 12 Pro 256GB Graphite</h4>
-                    <p class="price">Rp 6.800.000</p>
-                    <p class="desc">Digunakan dengan baik</p>
-                    </div>
-                    <div class="likes">❤️ 3</div>
-                </div>
-
-                <!-- Produk contoh diulang -->
-                <div class="product-card">
-                    <div class="seller-info">
-                    <img src="images/pic_placehoder_potrait.jpg" alt="Profil" class="profile-pic" />
-                    <div>
-                        <p class="seller-name">andihakimm</p>
-                        <p class="posted-time">2 hari yang lalu</p>
-                    </div>
-                    </div>
-                    <img src="images/pic_placehoder_sellitem.jpg" alt="iPhone 12" class="product-image" />
-                    <div class="product-info">
-                    <h4>iPhone 12 Pro 256GB Graphite</h4>
-                    <p class="price">Rp 6.800.000</p>
-                    <p class="desc">Digunakan dengan baik</p>
-                    </div>
-                    <div class="likes">❤️ 3</div>
-                </div>
-
-                <!-- Produk contoh diulang -->
-                <div class="product-card">
-                    <div class="seller-info">
-                    <img src="images/pic_placehoder_potrait.jpg" alt="Profil" class="profile-pic" />
-                    <div>
-                        <p class="seller-name">andihakimm</p>
-                        <p class="posted-time">2 hari yang lalu</p>
-                    </div>
-                    </div>
-                    <img src="images/pic_placehoder_sellitem.jpg" alt="iPhone 12" class="product-image" />
-                    <div class="product-info">
-                    <h4>iPhone 12 Pro 256GB Graphite</h4>
-                    <p class="price">Rp 6.800.000</p>
-                    <p class="desc">Digunakan dengan baik</p>
-                    </div>
-                    <div class="likes">❤️ 3</div>
-                </div>
-
-                <!-- Produk contoh diulang -->
-                <div class="product-card">
-                    <div class="seller-info">
-                    <img src="images/pic_placehoder_potrait.jpg" alt="Profil" class="profile-pic" />
-                    <div>
-                        <p class="seller-name">andihakimm</p>
-                        <p class="posted-time">2 hari yang lalu</p>
-                    </div>
-                    </div>
-                    <img src="images/pic_placehoder_sellitem.jpg" alt="iPhone 12" class="product-image" />
-                    <div class="product-info">
-                    <h4>iPhone 12 Pro 256GB Graphite</h4>
-                    <p class="price">Rp 6.800.000</p>
-                    <p class="desc">Digunakan dengan baik</p>
-                    </div>
-                    <div class="likes">❤️ 3</div>
-                </div>
-
-            </section>
-
-            <!-- Tombol Lihat Lebih Banyak -->
-            <div class="load-more">
-            <button>Lihat Lebih Banyak</button>
-            </div>
-
-        </main>
-
-        <!-- Footer (background full, isi 70%) -->
-        <footer>
-            <div class="container">
-            <p>FOOTER PLACEHOLDER</p>
-            </div>
-        </footer>
-
-    </body>
+  </body>
 </html>
