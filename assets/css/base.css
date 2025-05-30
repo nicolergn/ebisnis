@@ -1,0 +1,66 @@
+/* =========== GOOGLE FONTS =========== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* =========== VARIABLES =========== */
+:root {
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Noto Sans", sans-serif;
+
+  /* Font Scale */
+  --font-xxs: 0.75rem;
+  --font-xs: 0.875rem;
+  --font-sm: 1rem;
+  --font-md: 1.25rem;
+  --font-lg: 1.5rem;
+  --font-xl: 2rem;
+  --font-xxl: 2.5rem;
+
+  /* Use Case Font Sizes */
+  --logo-font-size: var(--font-xl);
+  --nav-font-size: var(--font-sm);
+  --input-font-size: var(--font-xs);
+
+  --product-grid-title-size: var(--font-xs);
+  --product-grid-price-size: var(--font-sm);
+  --product-grid-desc-size: var(--font-xxs);
+
+  --banner-font-size: var(--font-xxl);
+  --tab-font-size: var(--font-sm);
+  --product-title-size: var(--font-sm);
+  --product-meta-size: var(--font-xs);
+  --product-price-size: var(--font-sm);
+
+  /* Colors */
+  --base-bg: #ffffff;
+  --hover-bg: #f2f4f7;
+  --color-text-primary: #080808;
+  --color-text-secondary: #848a96;
+  --accent-color: #990000;
+  --lighter-border-color: #f2f4f7;
+  --darker-border-color: #848a96;
+}
+
+/* =========== GENERAL =========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  list-style: none;
+  text-decoration: none;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  margin-top: 5%;
+  min-height: 100vh;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+

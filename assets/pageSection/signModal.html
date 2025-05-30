@@ -1,0 +1,21 @@
+<!-- Modal Overlay -->
+<div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+
+<!-- Modal Login -->
+<div id="loginModal" class="modal">
+  <h2>Masuk</h2>
+  <input type="email" placeholder="Email" />
+  <input type="password" placeholder="Password" />
+  <button onclick="alert('Login diklik')">Masuk</button>
+  <p>Belum punya akun? <a href="#" onclick="switchModal('register')">Daftar</a></p>
+</div>
+
+<!-- Modal Register -->
+<div id="registerModal" class="modal">
+  <h2>Daftar</h2>
+  <input type="email" placeholder="Email" />
+  <input type="password" placeholder="Password" />
+  <input type="password" placeholder="Ulangi Password" />
+  <button onclick="alert('Daftar diklik')">Daftar</button>
+  <p>Sudah punya akun? <a href="#" onclick="switchModal('login')">Masuk</a></p>
+</div>

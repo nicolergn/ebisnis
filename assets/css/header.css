@@ -1,0 +1,69 @@
+/* =========== HEADER =========== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 99;
+  background-color: var(--base-bg);
+  border-bottom: 1px solid var(--lighter-border-color);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.logo a{
+  margin-right: 1rem;
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--logo-font-size);
+  color: var(--accent-color);
+}
+
+nav {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
+}
+
+nav a, .dropbtn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--nav-font-size);
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav a:hover, .dropbtn:hover {
+  background-color: var(--hover-bg);
+}
+
+/* =========== SEARCH BAR =========== */
+.search-bar {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--darker-border-color);
+  border-radius: 5px;
+  font-size: var(--input-font-size);
+}
+
+.search-bar input:focus {
+  border-color: var(--accent-color); /* Sesuaikan dengan variabel warna */
+  outline: none; /* Menghilangkan efek default browser */
+}

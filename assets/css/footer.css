@@ -1,0 +1,8 @@
+/* =========== FOOTER =========== */
+.footer {
+  background-color: turquoise;
+  color: var(--color-footer-text);
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 2rem;
+}

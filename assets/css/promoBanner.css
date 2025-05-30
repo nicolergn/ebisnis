@@ -1,0 +1,14 @@
+/* =========== PROMO BANNER =========== */
+.promo-banner {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  background-color: salmon;
+  z-index: 99;
+}
+
+.promo-text {
+  font-size: var(--banner-font-size);
+  font-weight: 700;
+}
