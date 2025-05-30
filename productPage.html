@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>NAMAWEB - Toko Barang Bekas Mahasiswa</title>
+        <link rel="stylesheet" href="assets/css/base.css" />
+        <link rel="stylesheet" href="assets/css/header.css" />
+        <link rel="stylesheet" href="assets/css/signModal.css" />
+        <link rel="stylesheet" href="assets/css/productDetail.css" />
+        <link rel="stylesheet" href="assets/css/recommendation.css" />
+        <link rel="stylesheet" href="assets/css/footer.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+  
+    <body>
+        <!-- Load Components -->
+        <div id="header"></div>
+        <div id="signModal"></div>
+        <div id="productDetail"></div>
+        <div id="recommendations"></div>
+        <div id="footer"></div>
+
+        <script>
+            async function loadComponent(id, file) {
+                const response = await fetch(file);
+                const text = await response.text();
+                document.getElementById(id).innerHTML = text;
+            }
+
+            // Load komponen halaman
+            loadComponent("header", "assets/pageSection/header.html");
+            loadComponent("signModal", "assets/pageSection/signModal.html");
+            loadComponent("productDetail", "assets/pageSection/productDetail.html");
+            loadComponent("recommendations", "assets/pageSection/recommendation.html");
+            loadComponent("footer", "assets/pageSection/footer.html");
+
+            // Fungsi modal
+            function openModal(type) {
+                document.getElementById('modalOverlay').style.display = 'block';
+                document.getElementById(`${type}Modal`).style.display = 'block';
+            }
+
+            function closeModal() {
+                document.getElementById('modalOverlay').style.display = 'none';
+                document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+            }
+
+            function switchModal(to) {
+                closeModal();
+                openModal(to);
+            }
+            
+        </script>
+
+    </body>
+</html>
