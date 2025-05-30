@@ -29,6 +29,16 @@
   --font-size-card-price: var(--font-size-sm);
   --font-size-card-desc: var(--font-size-xxs);
 
+  --font-size-product-detail-title: var(--font-size-lg);
+  --font-size-product-detail-price: var(--font-size-xl);
+  --font-size-product-detail-label: var(--font-size-sm);
+  --font-size-product-detail-desc: var(--font-size-xs);
+
+  --font-size-preview-profile-name: var(--font-size-md);
+  --font-size-preview-profile-active: var(--font-size-xs);
+  --font-size-preview-profile-button: var(--font-size-xs);
+  --font-size-preview-profile-stats: var(--font-size-sm);
+
   /* ========== Colors ========== */
   --color-accent: #990000;
   --color-accent-hover-bg: hsl(0, 100%, 25%);
@@ -58,7 +68,7 @@
 }
 
 body {
-  margin-top: 100px;
+  margin-top: 7rem;
   height: 100%;
   background-color: var(--color-bg-primary);
 }
@@ -68,3 +78,4 @@ body {
   margin: 0 auto;
   /* background-color: aqua; */
 }
+
