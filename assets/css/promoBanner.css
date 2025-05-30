@@ -1,14 +1,15 @@
-/* =========== PROMO BANNER =========== */
+/* ====================== PROMO BANNER ====================== */
 .promo-banner {
   display: flex;
   height: 200px;
   justify-content: center;
   align-items: center;
-  background-color: salmon;
+  background-color: var(--color-bg-secondary);
   z-index: 99;
 }
 
 .promo-text {
-  font-size: var(--banner-font-size);
+  font-size: var(--font-size-banner);
   font-weight: 700;
+  color: var(--color-accent);
 }
