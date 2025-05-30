@@ -1,47 +1,51 @@
-/* =========== GOOGLE FONTS =========== */
+/* ====================== GOOGLE FONTS ====================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* =========== VARIABLES =========== */
+/* ====================== VARIABLES ====================== */
 :root {
+  /* ========== Font Family ========== */
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Noto Sans", sans-serif;
 
-  /* Font Scale */
-  --font-xxs: 0.75rem;
-  --font-xs: 0.875rem;
-  --font-sm: 1rem;
-  --font-md: 1.25rem;
-  --font-lg: 1.5rem;
-  --font-xl: 2rem;
-  --font-xxl: 2.5rem;
+  /* ========== Font Scale ========== */
+  --font-size-xxs: 0.75rem;
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
 
-  /* Use Case Font Sizes */
-  --logo-font-size: var(--font-xl);
-  --nav-font-size: var(--font-sm);
-  --input-font-size: var(--font-xs);
+  /* ========== Font Use Case ========== */
+  --font-size-logo: var(--font-size-xl);
+  --font-size-nav: var(--font-size-sm);
+  --font-size-search-input: var(--font-size-xs);
 
-  --product-grid-title-size: var(--font-xs);
-  --product-grid-price-size: var(--font-sm);
-  --product-grid-desc-size: var(--font-xxs);
+  --font-size-banner: var(--font-size-xxl);
 
-  --banner-font-size: var(--font-xxl);
-  --tab-font-size: var(--font-sm);
-  --product-title-size: var(--font-sm);
-  --product-meta-size: var(--font-xs);
-  --product-price-size: var(--font-sm);
+  --font-size-recommendation-title: var(--font-size-lg);
+  --font-size-card-title: var(--font-size-xs);
+  --font-size-card-price: var(--font-size-sm);
+  --font-size-card-desc: var(--font-size-xxs);
 
-  /* Colors */
-  --base-bg: #ffffff;
-  --hover-bg: #f2f4f7;
-  --color-text-primary: #080808;
-  --color-text-secondary: #848a96;
-  --accent-color: #990000;
-  --lighter-border-color: #f2f4f7;
-  --darker-border-color: #848a96;
+  /* ========== Colors ========== */
+  --color-accent: #990000;
+  --color-accent-hover-bg: hsl(0, 100%, 25%);
+
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-hover: #f2f2f2;
+
+  --color-text-primary: #222222;
+  --color-text-secondary: #757575;
+  --color-text-inverse: #ffffff;
+
+  --color-border-light: #f2f2f2;
+  --color-border-dark: #757575;
 }
 
-/* =========== GENERAL =========== */
+/* ====================== GENERAL ====================== */
 * {
   margin: 0;
   padding: 0;
@@ -54,13 +58,13 @@
 }
 
 body {
-  background-color: var(--color-bg);
-  margin-top: 5%;
-  min-height: 100vh;
+  margin-top: 100px;
+  height: 100%;
+  background-color: var(--color-bg-primary);
 }
 
 .container {
   width: 70%;
   margin: 0 auto;
+  /* background-color: aqua; */
 }
-
