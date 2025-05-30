@@ -1,135 +1,101 @@
-/* =========== TABS =========== */
-.tab-section {
-  display: flex;
-  justify-content: center; /* Memastikan tab berada di tengah */
-  gap: 1rem;
-  margin: 1rem 0;
+/* ==================== RECOMMENDATION ==================== */
+.recommendation {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.tab {
-  position: relative;
-  padding: 10px 0;
-  background: none;
-  border: none;
-  outline: none;
-  font-weight: 500;
-  font-size: var(--tab-font-size, 1rem);
-  color: var(--color-text-primary, #333);
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.tab.active {
+.recommendation h3 {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding-bottom: 5px;
   font-weight: 700;
-  color: var(--accent-color, #007BFF);
+  font-size: var(--font-size-recommendation-title);
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
 }
 
-/* Memastikan garis bawah berada di tengah */
-.tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; /* Sedikit ke bawah agar lebih terlihat */
-  left: 50%;
-  width: 50px; /* Bisa disesuaikan agar tidak terlalu lebar */
-  height: 3px;
-  border-radius: 5px;
-  background-color: var(--accent-color, #007BFF);
-  transform: translateX(-50%); /* Menggeser ke tengah */
-}
-
-/* =========== PRODUCT GRID =========== */
-.product-grid {
+/* ========== Recommendation Grid ========== */
+.recommendation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
+  gap: 30px 15px;
 }
 
-/* Product Card */
-.product-card {
+/* ========== Recommendation Card ========== */
+.recommendation-card {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
   height: 300px;
+  border-radius: 5px;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-/* Efek hover lebih smooth */
-.product-card:hover {
+.recommendation-card:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   transform: translateY(-5px);
 }
 
-/* Gambar dalam Product Card */
-.product-image {
+.recommendation-image {
   object-fit: cover;
   width: 100%;
   height: 65%;
   border-radius: 5px;
 }
 
-/* =========== PRODUCT INFO =========== */
-.product-info {
+.recommendation-info {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 5px 8px;
+  text-align: left;
+  padding: 5px;
   height: 35%;
-  gap: 1px; /* Atur jarak antar elemen agar tetap rapat */
+  gap: 3px;
 }
 
-.product-info .title {
+.recommendation-info .title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 600;
-  font-size: var(--product-grid-title-size);
+  font-weight: 500;
+  font-size: var(--font-size-card-title);
   color: var(--color-text-primary);
 }
 
-.product-info .price {
+.recommendation-info .price {
   font-weight: 700;
-  font-size: var(--product-grid-price-size);
-  color: var(--accent-color);
+  font-size: var(--font-size-card-price);
+  color: var(--color-accent);
 }
 
-.product-info .desc {
+.recommendation-info .desc,
+.recommendation-info .location {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: var(--product-grid-desc-size);
+  font-size: var(--font-size-card-desc);
   color: var(--color-text-secondary);
 }
 
-.product-info .location {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: var(--product-grid-desc-size); /* Gunakan ukuran font yang sama */
-  color: var(--color-text-secondary); /* Pastikan warna sama */
-}
-
-/* Tombol "Load More" lebih responsif */
+/* ==================== LOAD MORE ==================== */
 .load-more {
   text-align: center;
-  margin: 2rem 0;
 }
 
 .load-more button {
   padding: 10px 25px;
   border-radius: 5px;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--color-accent);
   font-weight: 700;
   font-size: var(--font-sm);
-  color: var(--accent-color);
-  background-color: var(--base-bg);
+  color: var(--color-accent);
+  background: none;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Hover dengan efek interaktif */
 .load-more button:hover {
-  color: var(--base-bg);
-  background-color: var(--accent-color);
+  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
   transition: all 0.3s ease-in-out;
 }
