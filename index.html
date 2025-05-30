@@ -8,168 +8,48 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/signModal.css" />
     <link rel="stylesheet" href="assets/css/promoBanner.css" />
-    <link rel="stylesheet" href="assets/css/tabs.css" />
     <link rel="stylesheet" href="assets/css/recommendation.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   </head>
-  
+
   <body>
     <!-- Load Components -->
     <div id="header"></div>
     <div id="signModal"></div>
     <div id="promoBanner"></div>
-    <div id="main"></div>
+    <div id="recommendations"></div>
     <div id="footer"></div>
 
     <script>
-  async function loadComponent(id, file) {
-    const response = await fetch(file);
-    const text = await response.text();
-    document.getElementById(id).innerHTML = text;
+      async function loadComponent(id, file) {
+        const response = await fetch(file);
+        const text = await response.text();
+        document.getElementById(id).innerHTML = text;
+      }
 
-    // Setelah bagian main selesai dimuat, inisialisasi tab dan produk
-    if (id === "main") {
-      initTabsAndProducts(); 
-    }
-  }
+      // Load komponen halaman
+      loadComponent("header", "assets/pageSection/header.html");
+      loadComponent("signModal", "assets/pageSection/signModal.html");
+      loadComponent("promoBanner", "assets/pageSection/promoBanner.html");
+      loadComponent("recommendations", "assets/pageSection/recommendation.html");
+      loadComponent("footer", "assets/pageSection/footer.html");
 
-  // Load komponen halaman
-  loadComponent("header", "assets/pageSection/header.html");
-  loadComponent("signModal", "assets/pageSection/signModal.html");
-  loadComponent("promoBanner", "assets/pageSection/promoBanner.html");
-  loadComponent("main", "assets/pageSection/recommendation.html");
-  loadComponent("footer", "assets/pageSection/footer.html");
+      // Fungsi modal
+      function openModal(type) {
+        document.getElementById('modalOverlay').style.display = 'block';
+        document.getElementById(`${type}Modal`).style.display = 'block';
+      }
 
-  // Fungsi modal
-  function openModal(type) {
-    document.getElementById('modalOverlay').style.display = 'block';
-    document.getElementById(`${type}Modal`).style.display = 'block';
-  }
+      function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+        document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+      }
 
-  function closeModal() {
-    document.getElementById('modalOverlay').style.display = 'none';
-    document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
-  }
-
-  function switchModal(to) {
-    closeModal();
-    openModal(to);
-  }
-
-  // Inisialisasi tab dan produk setelah <main> dimuat
-  function initTabsAndProducts() {
-    const tabs = document.querySelectorAll('.tab');
-    const productGrid = document.getElementById('product-grid');
-
-    const products = {
-      rekomendasi: [
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'iPhone 12 Pro 256GB Graphite',
-          price: 'Rp 6.800.000',
-          desc: 'Produk rekomendasi',
-          location: 'Bandung, Jawa Barat',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        }
-      ],
-      terbaru: [
-        {
-          name: 'Xiaomi 14 Pro',
-          price: 'Rp 10.000.000',
-          desc: 'Produk terbaru 2025',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        },
-        {
-          name: 'Google Pixel 9',
-          price: 'Rp 12.500.000',
-          desc: 'Rilis terbaru dari Google',
-          img: 'assets/images/pic_placehoder_sellitem.jpg'
-        }
-      ]
-    };
-
-    function renderProducts(productList) {
-      productGrid.innerHTML = productList.map(product => `
-        <a href="productDetail.html" class="product-card-link">
-          <div class="product-card">
-            <img src="${product.img}" alt="${product.name}" class="product-image" />
-            <div class="product-info">
-              <h4 class="title">${product.name}</h4>
-              <p class="price">${product.price}</p>
-              <p class="desc">${product.desc}</p>
-              <p class="location">${product.location}</p>
-            </div>
-          </div>
-        </a>
-      `).join('');
-    }
-
-
-    // Default tampilkan rekomendasi
-    renderProducts(products.rekomendasi);
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const selected = tab.getAttribute('data-tab');
-        renderProducts(products[selected]);
-      });
-    });
-  }
-</script>
-
-
-    
-
+      function switchModal(to) {
+        closeModal();
+        openModal(to);
+      }
+    </script>
   </body>
 </html>
