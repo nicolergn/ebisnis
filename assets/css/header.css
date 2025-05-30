@@ -1,69 +1,72 @@
-/* =========== HEADER =========== */
+/* ====================== HEADER ====================== */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 70px;
   z-index: 99;
-  background-color: var(--base-bg);
-  border-bottom: 1px solid var(--lighter-border-color);
+  background-color: var(--color-accent);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .header-content {
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
 }
 
+/* =========== Text Logo =========== */
 .logo a{
-  margin-right: 1rem;
+  margin-right: 20px;
   font-family: var(--font-secondary);
   font-weight: 700;
-  font-size: var(--logo-font-size);
-  color: var(--accent-color);
+  font-size: var(--font-size-logo);
+  color: var(--color-text-inverse);
 }
 
+/* =========== Nav =========== */
 nav {
   display: flex;
   position: relative;
-  height: 100%;
   align-items: center;
+  height: 100%;
 }
 
 nav a, .dropbtn {
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 20px;
   text-decoration: none;
   font-weight: 500;
-  font-size: var(--nav-font-size);
-  color: var(--color-text-primary);
+  font-size: var(--font-size-nav);
+  color: var(--color-text-inverse);
   background: none;
   border: none;
   cursor: pointer;
 }
 
 nav a:hover, .dropbtn:hover {
-  background-color: var(--hover-bg);
+  background-color: var(--color-accent-hover-bg);
 }
 
-/* =========== SEARCH BAR =========== */
+/* =========== Search Bar =========== */
 .search-bar {
   flex: 1;
-  margin: 0 1rem;
+  margin: 0 10px;
 }
 
 .search-bar input {
   width: 100%;
   padding: 8px;
-  border: 1px solid var(--darker-border-color);
   border-radius: 5px;
-  font-size: var(--input-font-size);
+  border: 1px solid var(--color-border-light);
+  font-size: var(--font-size-search-input);
+  color: var(--color-text-primary);
 }
 
 .search-bar input:focus {
-  border-color: var(--accent-color); /* Sesuaikan dengan variabel warna */
-  outline: none; /* Menghilangkan efek default browser */
+  /* border-color: var(--color-accent); */
+  border-color: var(--color-border-dark);
+  outline: none;
 }
