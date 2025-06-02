@@ -1,0 +1,32 @@
+.edit-sec {
+  display: flex;
+}
+
+/* Sidebar kiri */
+.sidebar {
+  width: 150px;
+  margin-right: 30px;
+}
+
+.sidebar ul {
+  padding-top: 1rem;
+  list-style-type: none;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}

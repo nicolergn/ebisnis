@@ -1,0 +1,70 @@
+/* =======================================================
+   SEARCH PAGE STYLING
+======================================================= */
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem 1rem;
+}
+
+.search-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 19rem;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.search-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+}
+
+.search-image {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.search-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.3rem;
+  height: 35%;
+  text-align: left;
+  gap: 0.2rem;
+}
+
+.search-title {
+  font-size: var(--font-size-card-title);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-price {
+  font-size: var(--font-size-card-price);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.search-desc,
+.search-location {
+  font-size: var(--font-size-card-desc);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-results {
+    text-align: center;
+    font-size: var(--font-size-card-desc);
+    color: var(--color-text-secondary);
+    margin-top: 20px;
+}

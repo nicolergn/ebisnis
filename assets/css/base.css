@@ -34,14 +34,17 @@
   --font-size-product-detail-label: var(--font-size-sm);
   --font-size-product-detail-desc: var(--font-size-xs);
 
-  --font-size-preview-profile-name: var(--font-size-md);
+  --font-size-preview-profile-name: var(--font-size-lg);
   --font-size-preview-profile-active: var(--font-size-xs);
   --font-size-preview-profile-button: var(--font-size-xs);
   --font-size-preview-profile-stats: var(--font-size-sm);
 
   /* ========== Colors ========== */
   --color-accent: #990000;
+  --color-accent-secondary: #ff6666;
   --color-accent-hover-bg: hsl(0, 100%, 25%);
+  --color-accent-hover-bg-dark: hsl(0, 100%, 20%);
+  --color-accent-hover-gradient: linear-gradient(to right, hsl(0, 100%, 20%), hsl(0, 100%, 30%));
 
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f5f5f5;
@@ -70,7 +73,9 @@
 body {
   margin-top: 7rem;
   height: 100%;
+  /* min-height: 100vh; */
   background-color: var(--color-bg-primary);
+  /* background-color: red; */
 }
 
 .container {

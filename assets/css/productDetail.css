@@ -1,162 +1,257 @@
-/* ==================== PRODUCT DETAIL ==================== */
-.product-detail {
-    display: flex;
-    height: 30rem;
-    margin-top: 10rem;
-    margin-bottom: 5rem;
+/* =======================================================
+   PRODUCT DETAIL SECTION
+======================================================= */
+.pd-product-detail {
+  display: flex;
+  height: 30rem;
+  margin: 10rem 0 5rem 0;
 }
 
-/* ========== Detail Image ========== */
-.detail-image {
-    position: relative;
-    width: 30%;
+/* ---------------- Detail Image Carousel ---------------- */
+.pd-carousel {
+  position: relative;
+  width: 30rem;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.detail-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+.pd-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
 }
 
-/* ========== Detail Info ========== */
-.detail-info {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    padding: 1rem 2rem 0rem 2rem;
+.pd-carousel-img {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+  cursor: pointer;
 }
 
-.detail-info .title {
-    margin-bottom: 1rem;
-    font-size: var(--font-size-product-detail-title);
-    color: var(--color-text-primary);
+.pd-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
 }
 
-.detail-info .price {
-    margin-bottom: 2rem;
-    font-size: var(--font-size-product-detail-price);
-    color: var(--color-accent);
+.pd-carousel-btn.pd-prev {
+  left: 10px;
 }
 
-.detail-info .info-meta {
-    display: flex;
-    gap: 10rem;
+.pd-carousel-btn.pd-next {
+  right: 10px;
 }
 
-.detail-info .label {
-    margin-bottom: 0.2rem;
-    font-weight: 600;
-    font-size: var(--font-size-product-detail-label);
-    color: var(--color-text-primary) ;
+/* ---------------- Detail Info ---------------- */
+.pd-detail-info {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 1rem 2rem;
 }
 
-.detail-info p {
-    font-weight: 400;
-    font-size: var(--font-size-product-detail-p);
-    color: var(--color-text-primary);
+.pd-detail-info .pd-title,
+.pd-detail-info .pd-price,
+.pd-detail-info .pd-label {
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
 
-.detail-info .deskripsi {
-    margin-top: 2rem;
-    text-align: justify;
+.pd-detail-info .pd-title {
+  font-size: var(--font-size-product-detail-title);
+  margin-bottom: 1rem;
 }
 
-/* ==================== SELLER PREVIEW ==================== */
-.seller-preview {
-    display: flex;
-    align-items: stretch;
-    padding: 2rem;
-    gap: 2rem;
-    border-radius: 5px;
-    border: 1px solid var(--color-border-light);
-    background-color: var(--color-bg-secondary);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+.pd-detail-info .pd-price {
+  font-size: var(--font-size-product-detail-price);
+  color: var(--color-accent);
+  margin-bottom: 2rem;
 }
 
-/* ========== Left: Profile Preview ========== */
-.seller-preview .seller-left {
-    display: flex;
-    align-items: center;
-    flex: 1;
+.pd-detail-info .pd-info-meta {
+  display: flex;
+  gap: 5rem;
 }
 
-.preview-profile {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+.pd-detail-info .pd-info-item p {
+  font-size: var(--font-size-product-detail-p);
+  color: var(--color-text-primary);
 }
 
-.preview-profile .profile-pic {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid var(--color-border-dark);
+.pd-detail-info .pd-description {
+  margin-top: 2rem;
+  text-align: justify;
 }
 
-.preview-profile .seller-details {
-    display: flex;
-    flex-direction: column;
+/* =======================================================
+   SELLER PREVIEW SECTION
+======================================================= */
+.pd-seller-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 2rem;
+  gap: 2rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-.preview-profile .seller-name {
-    font-weight: 600;
-    font-size: var(--font-size-preview-profile-name);
-    color: var(--color-text-primary);
+.pd-seller-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
 
-.preview-profile .last-active {
-    font-size: var(--font-size-preview-profile-active) ;
-    color: var(--color-text-secondary);
+.pd-preview-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.preview-profile .chat-btn {
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: 1px solid var(--color-accent);
-    font-weight: 500;
-    font-size: var(--font-size-preview-profile-button);
-    color: var(--color-text-inverse);
-    background-color: var(--color-accent);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+.pd-profile-pic {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-dark);
 }
 
-.preview-profile .chat-btn:hover {
-    color: var(--color-accent);
-    background-color: var(--color-bg-primary);
+.pd-seller-details {
+  display: flex;
+  flex-direction: column;
 }
 
-/* ========== Vertical Line ========== */
-.seller-preview .vertical-line {
-    width: 1px;
-    height: auto;
-    opacity: 0.2;
-    background-color: var(--color-border-dark);
+.pd-seller-name {
+  font-weight: 600;
+  font-size: var(--font-size-preview-profile-name);
+  color: var(--color-text-primary);
 }
 
-/* ========== Right: Seller Stats ========== */
-.seller-preview .seller-right {
-    flex: 2;
+.pd-last-active {
+  font-size: var(--font-size-preview-profile-active);
+  color: var(--color-text-secondary);
 }
 
-.seller-preview .seller-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 1rem;
-    column-gap: 2rem;
+.pd-chat-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-accent);
+  font-weight: 500;
+  font-size: var(--font-size-preview-profile-button);
+  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-.seller-preview .seller-stats .label {
-    font-size: var(--font-size-preview-profile-stats);
-    color: var(--color-text-secondary);
-    margin-bottom: 0.3rem;
+.pd-chat-btn:hover {
+  color: var(--color-accent);
+  background-color: var(--color-bg-primary);
 }
 
-.seller-preview .seller-stats .value {
-    font-weight: 600;
-    font-size: var(--font-size-preview-profile-stats);
-    color: var(--color-accent);
+.pd-profile-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pd-vertical-line {
+  width: 1px;
+  height: auto;
+  opacity: 0.2;
+  background-color: var(--color-border-dark);
+}
+
+.pd-seller-right {
+  flex: 2;
+}
+
+.pd-seller-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  column-gap: 2rem;
+}
+
+.pd-seller-stats .pd-label {
+  font-size: var(--font-size-preview-profile-stats);
+  color: var(--color-text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.pd-seller-stats .pd-value {
+  font-weight: 600;
+  font-size: var(--font-size-preview-profile-stats);
+  color: var(--color-accent);
+}
+
+/* =======================================================
+   IMAGE POPUP MODAL
+======================================================= */
+.pd-image-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.pd-image-popup-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.pd-image-popup-overlay img,
+#pdPopupImg {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pd-popup-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.pd-popup-nav.pd-prev {
+  left: 20px;
+}
+
+.pd-popup-nav.pd-next {
+  right: 20px;
 }
